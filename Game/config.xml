@@ -1,0 +1,33 @@
+<!--Config file for the game I/W/T/A/S -->
+<config>
+
+  <input>
+  </input>
+  
+  <window>	
+    <fullscreen value ="false"/>
+    <borderless value ="false"/>
+    <resizable value ="true"/>
+    <fullscreen_window value ="false"/>
+    <name>My super awesome game with XML</name>
+    <width value="550"/>
+    <height value ="500"/>
+    <scale value ="1"/>
+  </window>
+
+  <texture>
+  </texture>
+  
+  <audio>
+    <volume value ="128"/>
+  </audio>
+
+  <scene> 
+  </scene>
+  
+  <render>
+    <camera_x value ="150"/>
+    <camera_y value ="150"/>
+  </render>
+  
+</config>
