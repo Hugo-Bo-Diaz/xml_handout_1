@@ -45,6 +45,9 @@ public:
 	SDL_Rect		camera;
 	SDL_Rect		viewport;
 	SDL_Color		background;
+	bool load(pugi::xml_node* node);
+	bool save(pugi::xml_node* node);
+
 };
 
 #endif // __j1RENDER_H__

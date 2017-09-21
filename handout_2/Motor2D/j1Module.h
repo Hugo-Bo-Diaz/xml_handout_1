@@ -60,8 +60,8 @@ public:
 	}
 
 	// TODO 2: Create new virtual methods to Load and Save
-	virtual bool save(pugi::xml_node* node);
-	virtual bool load(pugi::xml_node* node);
+	virtual bool save(pugi::xml_node* node) { return true; };
+	virtual bool load(pugi::xml_node* node) { return true; };
 	
 public:
 

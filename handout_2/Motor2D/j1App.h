@@ -51,15 +51,17 @@ public:
 	bool load()
 	{
 		needs_load = true;
+		return true;
 	};
 	const bool save()
 	{
 		needs_save = true;
+		return true;
 	};
 
 private:
-	bool real_load() {};
-	bool real_save() {};
+	bool real_load(pugi::xml_node* node);
+	bool real_save(pugi::xml_node* node);
 
 
 	// Load config file
@@ -100,8 +102,11 @@ private:
 	pugi::xml_node		app_config;
 	int					argc;
 	char**				args;
+	//this variables are for the save/load
 	bool needs_save =	false;
 	bool needs_load =	false;
+	pugi::xml_document	save_file;
+	pugi::xml_node save_node;
 
 	p2SString			title;
 	p2SString			organization;
