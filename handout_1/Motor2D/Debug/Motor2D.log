@@ -1,0 +1,13 @@
+﻿  pugixml.cpp
+  j1Window.cpp
+  j1Textures.cpp
+  j1Render.cpp
+  p2Log.cpp
+  j1Scene.cpp
+  j1Input.cpp
+  j1Audio.cpp
+  j1App.cpp
+  j1Main.cpp
+  Generando código...
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\Debug\Motor 2D.exe
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\Debug\Motor 2D.pdb (Partial PDB)
