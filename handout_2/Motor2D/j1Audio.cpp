@@ -130,6 +130,8 @@ bool j1Audio::PlayMusic(const char* path, float fade_time)
 		}
 	}
 
+	Mix_VolumeMusic(volume);
+
 	LOG("Successfully playing %s", path);
 	return ret;
 }
@@ -172,3 +174,25 @@ bool j1Audio::PlayFx(unsigned int id, int repeat)
 
 	return ret;
 }
+
+bool j1Audio::load(pugi::xml_node* node)
+{
+	volume = node->child("volume").attribute("value").as_int();
+	Mix_VolumeMusic(volume);
+	return true;
+};
+bool j1Audio::save(pugi::xml_node* node)
+{
+	node->child("volume").attribute("value").set_value(volume);
+	return true;
+};
+
+void j1Audio::change_volume(int change)
+{
+	if (volume + change >= 0 && volume + change <= 126)
+	{
+		volume += change;
+	}
+	Mix_VolumeMusic(volume);
+}
+
