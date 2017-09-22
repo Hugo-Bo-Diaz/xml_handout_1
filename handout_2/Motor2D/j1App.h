@@ -60,8 +60,8 @@ public:
 	};
 
 private:
-	bool real_load(pugi::xml_node* node);
-	bool real_save(pugi::xml_node* node);
+	bool real_load();
+	bool real_save();
 
 
 	// Load config file
