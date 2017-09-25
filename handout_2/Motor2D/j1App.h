@@ -59,13 +59,23 @@ public:
 		return true;
 	};
 
+	bool reset()
+	{
+		needs_reset = true;
+		return true;
+	}
+
 private:
 	bool real_load();
 	bool real_save();
+	bool real_reset();
 
 
 	// Load config file
 	bool LoadConfig();
+
+	bool Load_save_file();
+	bool Load_default_values();
 
 	// Call modules before each loop iteration
 	void PrepareUpdate();
@@ -102,11 +112,15 @@ private:
 	pugi::xml_node		app_config;
 	int					argc;
 	char**				args;
-	//this variables are for the save/load
+	//this variables are for the save/load/reset
 	bool needs_save =	false;
 	bool needs_load =	false;
+	bool needs_reset =	false;
 	pugi::xml_document	save_file;
-	pugi::xml_node save_node;
+	pugi::xml_node		save_node;
+
+	pugi::xml_document	default_values_file;
+	pugi::xml_node		default_values_node;
 
 	p2SString			title;
 	p2SString			organization;

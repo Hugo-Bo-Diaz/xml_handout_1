@@ -181,6 +181,12 @@ bool j1Audio::load(pugi::xml_node* node)
 	Mix_VolumeMusic(volume);
 	return true;
 };
+bool j1Audio::reset(pugi::xml_node* node)
+{
+	volume = node->child("volume").attribute("value").as_int();
+	Mix_VolumeMusic(volume);
+	return true;
+};
 bool j1Audio::save(pugi::xml_node* node)
 {
 	node->child("volume").attribute("value").set_value(volume);

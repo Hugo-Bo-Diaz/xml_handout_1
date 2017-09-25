@@ -96,6 +96,13 @@ bool j1Render::load(pugi::xml_node* node)
 	return true;
 }
 
+bool j1Render::reset(pugi::xml_node* node)
+{
+	camera.x = node->child("camera").attribute("x").as_int(0);
+	camera.y = node->child("camera").attribute("y").as_int(0);
+	return true;
+}
+
 bool j1Render::save(pugi::xml_node* node)
 {
 	node->child("camera").attribute("x").set_value(camera.x);

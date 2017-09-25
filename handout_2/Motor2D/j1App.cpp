@@ -67,8 +67,13 @@ bool j1App::Awake()
 	// self-config
 	title.create(app_config.child("title").child_value());
 	organization.create(app_config.child("organization").child_value());
+	//load save file.xml and load (set the need save bool to true)
+	bool ret_save = Load_save_file();
 
-	if(ret == true)
+	load();
+	Load_default_values();
+
+	if(ret == true && ret_save == true)
 	{
 		p2List_item<j1Module*>* item;
 		item = modules.start;
@@ -128,9 +133,8 @@ bool j1App::LoadConfig()
 	bool ret = true;
 
 	pugi::xml_parse_result result = config_file.load_file("config.xml");
-	pugi::xml_parse_result result_save = save_file.load_file("savegame.xml");
 
-	if(result == NULL || result_save ==NULL)
+	if(result == NULL)
 	{
 		LOG("Could not load map xml file config.xml. pugi error: %s", result.description());
 		ret = false;
@@ -139,10 +143,47 @@ bool j1App::LoadConfig()
 	{
 		config = config_file.child("config");
 		app_config = config.child("app");
-	
-		save_node = save_file.child("save");
 	}
 	
+	return ret;
+}
+
+bool j1App::Load_save_file()
+{
+	bool ret = true;
+
+	pugi::xml_parse_result result_save = save_file.load_file("savegame.xml");
+
+	if (result_save == NULL)
+	{
+		LOG("Could not load map xml file config.xml. pugi error: %s", result_save.description());
+		ret = false;
+	}
+	else
+	{
+		save_node = save_file.child("save");
+	}
+
+
+	return ret;
+}
+
+bool j1App::Load_default_values()
+{
+	bool ret = true;
+
+	pugi::xml_parse_result result = default_values_file.load_file("default_values.xml");
+
+	if (result == NULL)
+	{
+		LOG("Could not load map xml file default_values.xml. pugi error: %s", result.description());
+		ret = false;
+	}
+	else
+	{
+		default_values_node = default_values_file.child("default");
+	}
+
 
 	return ret;
 }
@@ -166,6 +207,11 @@ void j1App::FinishUpdate()
 		real_save();
 		needs_save = false;
 	};
+	if (needs_reset)
+	{
+		real_reset();
+		needs_reset = false;
+	}
 
 }
 
@@ -303,6 +349,19 @@ bool j1App::real_save()
 
 	save_file.save_file("savegame.xml");
 
+	return true;
+}
+
+bool j1App::real_reset()
+{
+	p2List_item<j1Module*>* item;
+	item = modules.start;
+
+	while (item != NULL)
+	{
+		item->data->reset(&(default_values_node.child(item->data->name.GetString())));
+		item = item->next;
+	}
 	return true;
 }
 

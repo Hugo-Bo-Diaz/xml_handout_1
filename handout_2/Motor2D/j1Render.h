@@ -47,6 +47,7 @@ public:
 	SDL_Color		background;
 	bool load(pugi::xml_node* node);
 	bool save(pugi::xml_node* node);
+	bool reset(pugi::xml_node* node);
 
 };
 

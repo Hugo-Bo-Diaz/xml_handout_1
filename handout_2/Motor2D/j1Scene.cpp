@@ -63,11 +63,8 @@ bool j1Scene::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
 		App->load();
 
-	/*if (App->input->GetKey(SDL_SCANCODE_KP_PLUS) == KEY_DOWN)
-		App->audio->change_volume(+5);
-
-	if (App->input->GetKey(SDL_SCANCODE_KP_PLUSMINUS) == KEY_DOWN)
-		App->audio->change_volume(-5);*/
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+		App->reset();
 
 	if (App->input->GetKey(SDL_SCANCODE_KP_PLUS) == KEY_DOWN)
 		App->audio->change_volume(+4);
