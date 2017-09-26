@@ -156,7 +156,7 @@ bool j1App::Load_save_file()
 
 	if (result_save == NULL)
 	{
-		LOG("Could not load map xml file config.xml. pugi error: %s", result_save.description());
+		LOG("Could not load map xml file savegame.xml. pugi error: %s", result_save.description());
 		ret = false;
 	}
 	else
