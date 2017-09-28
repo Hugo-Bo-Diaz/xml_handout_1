@@ -32,7 +32,7 @@ struct map_info
 	uint tile_width = 0;
 	uint tile_height = 0;
 	uint next_object_id = 1;
-
+	uint number_of_tiles = 0;
 };
 
 
@@ -51,6 +51,14 @@ struct tileset
 	uint image_height;
 	uint image_width;
 	SDL_Texture* tileset_texture;
+};
+
+struct layer
+{
+	p2SString name;
+	uint width;
+	uint height;
+
 };
 // TODO 1: Create a struct needed to hold the information to Map node
 
@@ -84,17 +92,19 @@ public:
 	// TODO 1: Add your struct for map info as public for now
 	
 	map_info map;
-	p2List<tileset> tilesets_1;
-	tileset tilesets;
+	p2List<tileset> tilesets;
+	p2List<layer> layers;
+	//tileset tilesets;
 	
 private:
 
 	pugi::xml_document	map_file;
 	pugi::xml_node		map_node;
-	pugi::xml_node		tileset_node;
 	p2SString			folder;
 	bool				map_loaded;
-	void load_tileset(tileset* tiles,pugi::xml_node* map_node);
+	tileset load_tileset(pugi::xml_node* map_node);
+	layer load_layer(pugi::xml_node* map_node);
+
 	void load_map_data();
 
 };
