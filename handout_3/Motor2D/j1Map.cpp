@@ -31,6 +31,8 @@ void j1Map::Draw()
 	if(map_loaded == false)
 		return;
 
+
+
 	// TODO 6: Iterate all tilesets and draw all their 
 	// images in 0,0 (you should have only one tileset for now)
 
@@ -44,8 +46,9 @@ bool j1Map::CleanUp()
 	// TODO 2: Make sure you clean up any memory allocated
 	// from tilesets / map
 
-
 	map_file.reset();
+	delete(&map);
+	tilesets.clear();
 
 	return true;
 }
@@ -68,11 +71,11 @@ bool j1Map::Load(const char* file_name)
 	{
 		// TODO 3: Create and call a private function to load and fill
 		// all your map data
+		load_map_data();
 	}
 
 	// TODO 4: Create and call a private function to load a tileset
 	// remember to support more any number of tilesets!
-	
 
 	if(ret == true)
 	{
@@ -84,4 +87,54 @@ bool j1Map::Load(const char* file_name)
 
 	return ret;
 }
+	void j1Map::load_tileset(tileset* tiles)
+	{
+		tileset_node = map_node.child("tileset");
+	}
 
+
+	void j1Map::load_map_data()
+	{
+		p2SString temp_char;
+		map_node = map_file.child("map");
+
+		map.version = map_node.attribute("version").as_float();
+		map.width = map_node.attribute("width").as_uint();
+		map.height = map_node.attribute("height").as_uint();
+
+		temp_char = map_node.attribute("orientation").as_string();
+		if (temp_char == "orthogonal")
+		{
+			map.perspective = ORTHOGONAL;
+		}
+		else if (temp_char == "isometric")
+		{
+			map.perspective = ISOMETRICAL;
+		}
+		else if (temp_char == "hexagonal")
+		{
+			map.perspective = HEXAGONAL;
+		}
+
+		temp_char = map_node.attribute("renderorder").as_string();
+		if (temp_char == "right-down")
+		{
+			map.order = RIGHT_DOWN;
+		}
+		else if (temp_char == "left-down")
+		{
+			map.order = LEFT_DOWN;
+		}
+		else if (temp_char == "left-up")
+		{
+			map.order = LEFT_UP;
+		}
+		else if (temp_char == "right-up")
+		{
+			map.order = RIGHT_UP;
+		}
+
+		map.tile_width = map_node.attribute("tilewidth").as_uint();
+		map.tile_height = map_node.attribute("tileheight").as_uint();
+		map.next_object_id = map_node.attribute("nextobjectid").as_uint();
+	}
