@@ -43,12 +43,15 @@ struct map_info
 struct tileset
 {
 	uint firstgid;
-	char* name;
-	uint tile_measures[2];
+	p2SString name;
+	uint tile_width;
+	uint tile_height;
 	uint spacing;
 	uint margin;
 	p2SString image;
-	uint image_measures[2];
+	uint image_height;
+	uint image_width;
+	uint firstobjectid;
 };
 // TODO 1: Create a struct needed to hold the information to Map node
 
