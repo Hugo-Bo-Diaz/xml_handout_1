@@ -1,8 +1,0 @@
-<map>
-  <version value="1.0"/>
-  <orientation value ="orthogonal"/>
-  <renderorder value ="right-down"/>
-  <measures width="50" height="15"/>
-  <tiles tilewidth ="32" tileheight="32"/>
-  <nextobjectid value ="1"/>
-</map>

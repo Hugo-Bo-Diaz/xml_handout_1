@@ -31,10 +31,12 @@ void j1Map::Draw()
 	if(map_loaded == false)
 		return;
 
-
-
 	// TODO 6: Iterate all tilesets and draw all their 
 	// images in 0,0 (you should have only one tileset for now)
+	uint number_of_tiles_x = (tilesets.image_width - tilesets.margin) / (tilesets.tile_width + tilesets.margin);
+	uint number_of_tiles_y = (tilesets.image_height - tilesets.margin) / (tilesets.tile_height + tilesets.margin);
+
+	App->render->Blit(	tilesets.tileset_texture,0,0);
 
 }
 
@@ -48,7 +50,7 @@ bool j1Map::CleanUp()
 
 	map_file.reset();
 	delete(&map);
-	tilesets.clear();
+	delete(&tilesets);
 
 	return true;
 }
@@ -77,31 +79,37 @@ bool j1Map::Load(const char* file_name)
 	// TODO 4: Create and call a private function to load a tileset
 	// remember to support more any number of tilesets!
 
+	tileset_node = map_node.child("tileset");
+	load_tileset(&tilesets,&tileset_node);
 
 	if(ret == true)
 	{
 		// TODO 5: LOG all the data loaded
 		// iterate all tilesets and LOG everything
-
+		LOG("map and tileset have been successfully loaded");
 	}
 
 	map_loaded = ret;
 
 	return ret;
 }
-	void j1Map::load_tileset(tileset* tiles)
+	void j1Map::load_tileset(tileset* tiles, pugi::xml_node* tileset_node)
 	{
-		tileset_node = map_node.child("tileset");
-		tiles->spacing = tileset_node.attribute("spacing").as_uint();
-		tiles->image = tileset_node.child("image").attribute("source").as_string();
-		tiles->tile_width = tileset_node.attribute("tilewidth").as_uint();
-		tiles->tile_height = tileset_node.attribute("tileheight").as_uint();
-		tiles->spacing = tileset_node.attribute("spacing").as_uint();
-		tiles->margin = tileset_node.attribute("margin").as_uint();
-		tiles->image_width = tileset_node.child("image").attribute("width").as_uint();
-		tiles->image_height = tileset_node.child("image").attribute("height").as_uint();
-		tiles->firstobjectid = tileset_node.attribute("firstobjectid").as_uint();
-		tiles->name = tileset_node.attribute("name").as_string();
+		tiles->spacing = tileset_node->attribute("spacing").as_uint();
+		tiles->tile_width = tileset_node->attribute("tilewidth").as_uint();
+		tiles->tile_height = tileset_node->attribute("tileheight").as_uint();
+		tiles->spacing = tileset_node->attribute("spacing").as_uint();
+		tiles->margin = tileset_node->attribute("margin").as_uint();
+		tiles->image_width = tileset_node->child("image").attribute("width").as_uint();
+		tiles->image_height = tileset_node->child("image").attribute("height").as_uint();
+		tiles->name = tileset_node->attribute("name").as_string();
+		tiles->firstgid = tileset_node->attribute("firstgid").as_uint();
+
+		p2SString image_directory = tileset_node->child("image").attribute("source").as_string();
+		tiles->tileset_texture = App->tex->Load(image_directory.GetString());
+
+
+
 	}
 
 
