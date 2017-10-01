@@ -82,7 +82,8 @@ bool j1Map::Load(const char* file_name)
 	pugi::xml_node tileset_node = map_node.child("tileset");	
 	p2SString string1 = tileset_node.name();
 	p2SString string2 = "tileset";	
-	while (string1.Length() == string2.Length())
+	//while (string1.Length() == string2.Length())
+	while (strcmp(string1.GetString(),string2.GetString()))
 	{
 		tilesets.add(load_tileset(&tileset_node));
 		map.number_of_tiles++;
@@ -95,7 +96,7 @@ bool j1Map::Load(const char* file_name)
 	pugi::xml_node layer_node = map_node.child("layer");
 	string1 = layer_node.name();
 	string2 = "layer";
-	while (string1.Length() == string2.Length())
+	while (strcmp(string1.GetString(), string2.GetString()))
 	{
 		layers.add(load_layer(&layer_node));
 		LOG("Loaded layer %s", layer_node.attribute("name").as_string());
