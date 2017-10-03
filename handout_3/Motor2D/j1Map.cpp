@@ -83,7 +83,7 @@ bool j1Map::Load(const char* file_name)
 	p2SString string1 = tileset_node.name();
 	p2SString string2 = "tileset";	
 	//while (string1.Length() == string2.Length())
-	while (strcmp(string1.GetString(),string2.GetString()))
+	while (string1.Length() == string2.Length())
 	{
 		tilesets.add(load_tileset(&tileset_node));
 		map.number_of_tiles++;
@@ -96,7 +96,7 @@ bool j1Map::Load(const char* file_name)
 	pugi::xml_node layer_node = map_node.child("layer");
 	string1 = layer_node.name();
 	string2 = "layer";
-	while (strcmp(string1.GetString(), string2.GetString()))
+	while (string1.Length() == string2.Length())
 	{
 		layers.add(load_layer(&layer_node));
 		LOG("Loaded layer %s", layer_node.attribute("name").as_string());
@@ -129,8 +129,13 @@ bool j1Map::Load(const char* file_name)
 		tiles.name = tileset_node->attribute("name").as_string();
 		tiles.firstgid = tileset_node->attribute("firstgid").as_uint();
 
-		p2SString image_directory = tileset_node->child("image").attribute("source").as_string();
-		tiles.tileset_texture = App->tex->Load(image_directory.GetString());
+		char image_directory[50] = "maps/";
+		//strcpy(image_directory,"maps/");
+		strcat(image_directory, tileset_node->child("image").attribute("source").as_string());
+		/*char* directory = "maps/";
+		p2SString image = tileset_node->child("image").attribute("source").as_string();
+		image_directory =str (directory,image.GetString());*/
+		tiles.tileset_texture = App->tex->Load(image_directory);
 
 		return tiles;
 	}
