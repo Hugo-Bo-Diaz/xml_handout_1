@@ -31,8 +31,20 @@ void j1Map::Draw()
 	if(map_loaded == false)
 		return;
 
+	SDL_Rect rect = {0,0,0,0};
+
 	// TODO 5: Prepare the loop to draw all tilesets + Blit
 
+	for (int _y=0; _y < data.layers.start->data->height; ++_y)
+	{
+		for (int _x=0; _x < data.layers.start->data->width; ++_x)
+		{
+			App->render->Blit(
+				data.tilesets.start->data->texture,
+				_x*data.tilesets.start->data->tile_width, _y*data.tilesets.start->data->tile_height,
+				&data.tilesets.start->data->GetTileRect( data.layers.start->data->data[data.layers.start->data->Get(_x,_y,data.layers.start->data->width)] ));
+		}
+	}
 		// TODO 9: Complete the draw function
 
 }
@@ -139,7 +151,7 @@ bool j1Map::Load(const char* file_name)
 
 		if (ret == true)
 		{
-			ret = LoadLayer(tileset, set);
+			ret = LoadLayer(layer, set);
 		}
 
 		data.layers.add(set);
@@ -321,13 +333,20 @@ bool j1Map::LoadLayer(pugi::xml_node& node, map_layer* layer)
 	layer->height = node.attribute("height").as_uint();
 	layer->size = layer->width*layer->height;
 
+	layer->data = new uint[layer->size];
+
 	memset(layer->data, 0, sizeof(uint)*(layer->size));
 	pugi::xml_node data_node = node.child("data").first_child();
 
-	for (uint i = 0;i<layer->size;i++)
+	for (uint i = 0; i<layer->size; i++)
 	{
 		layer->data[i] = data_node.attribute("gid").as_uint();
 		data_node = data_node.next_sibling();
+		//LOG("item # %d , number %d", i,layer->data[i]);
 	}
 	return ret;
+}
+inline uint map_layer::Get(int x, int y, int width) const
+{
+	return y*width + x;
 }

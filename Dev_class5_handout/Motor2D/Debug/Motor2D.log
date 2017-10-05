@@ -1,7 +1,9 @@
 ﻿  j1Map.cpp
+c:\users\hugobd\documents\github\xml_handout_1\dev_class5_handout\motor2d\j1map.cpp(38): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hugobd\documents\github\xml_handout_1\dev_class5_handout\motor2d\j1map.cpp(40): warning C4018: '<': no coinciden signed/unsigned
   Generando código...
   Omitiendo... (no se detectaron cambios relevantes)
   j1Scene.cpp
   j1App.cpp
-  Motor2D.vcxproj -> C:\Users\hugobd\Downloads\Dev_class5_handout\Dev_class5_handout\Debug\Motor 2D.exe
-  Motor2D.vcxproj -> C:\Users\hugobd\Downloads\Dev_class5_handout\Dev_class5_handout\Debug\Motor 2D.pdb (Partial PDB)
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\Dev_class5_handout\Debug\Motor 2D.exe
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\Dev_class5_handout\Debug\Motor 2D.pdb (Partial PDB)
