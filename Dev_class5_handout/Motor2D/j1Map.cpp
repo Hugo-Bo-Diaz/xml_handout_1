@@ -42,7 +42,7 @@ void j1Map::Draw()
 			App->render->Blit(
 				data.tilesets.start->data->texture,
 				_x*data.tilesets.start->data->tile_width, _y*data.tilesets.start->data->tile_height,
-				&data.tilesets.start->data->GetTileRect( data.layers.start->data->data[data.layers.start->data->Get(_x,_y,data.layers.start->data->width)] ));
+				&data.tilesets.start->data->GetTileRect( data.layers.start->data->data[data.layers.start->data->Get(_x,_y)] ));
 		}
 	}
 		// TODO 9: Complete the draw function
@@ -345,8 +345,4 @@ bool j1Map::LoadLayer(pugi::xml_node& node, map_layer* layer)
 		//LOG("item # %d , number %d", i,layer->data[i]);
 	}
 	return ret;
-}
-inline uint map_layer::Get(int x, int y, int width) const
-{
-	return y*width + x;
 }

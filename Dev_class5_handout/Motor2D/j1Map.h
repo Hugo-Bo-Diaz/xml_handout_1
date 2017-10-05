@@ -16,7 +16,10 @@ struct map_layer
 	uint width = 0;
 	uint height = 0;
 
-	inline uint Get(int x, int y, int width)const;
+	inline uint Get(int x, int y)const
+	{
+		return y*width +x;
+	};
 	~map_layer()
 	{
 		RELEASE_ARRAY(data);
