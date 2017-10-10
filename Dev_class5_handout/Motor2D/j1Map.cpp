@@ -39,9 +39,11 @@ void j1Map::Draw()
 	{
 		for (int _x=0; _x < data.layers.start->data->width; ++_x)
 		{
+			iPoint point = MapToWorld(_x, _y);
+
 			App->render->Blit(
 				data.tilesets.start->data->texture,
-				_x*data.tilesets.start->data->tile_width, _y*data.tilesets.start->data->tile_height,
+				point.x, point.y,
 				&data.tilesets.start->data->GetTileRect( data.layers.start->data->data[data.layers.start->data->Get(_x,_y)] ));
 		}
 	}

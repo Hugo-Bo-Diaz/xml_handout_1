@@ -66,10 +66,17 @@ bool j1Scene::Update(float dt)
 
 	// TODO 7: Set the window title like
 	// "Map:%dx%d Tiles:%dx%d Tilesets:%d"
-	p2SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d",
+
+	int _x = 0;
+	int _y = 0;
+	App->input->GetMousePosition(_x, _y);
+	_x = (-App->render->camera.x + _x) / App->map->data.tile_width;
+	_y = (-App->render->camera.y + _y) / App->map->data.tile_height;
+
+	p2SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d Tile x mouse:%d Tile y mouse:%d",
 					App->map->data.width, App->map->data.height,
 					App->map->data.tile_width, App->map->data.tile_height,
-					App->map->data.tilesets.count());
+					App->map->data.tilesets.count(),_x,_y);
 
 	App->win->SetTitle(title.GetString());
 	return true;
