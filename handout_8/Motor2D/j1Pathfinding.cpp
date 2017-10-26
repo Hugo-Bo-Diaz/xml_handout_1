@@ -181,12 +181,11 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 	start.h = origin.DistanceTo(destination);
 	start.pos = origin;
 	open.list.add(start);
-
 	// Iterate while we have tile in the open list
-	while (open.list.count != 0)
+	while (open.list.count() != 0)
 	{
 	// TODO 3: Move the lowest score cell from open list to the closed list
-		p2List_item<PathNode>* item = closed.list.add(open.GetNodeLowestScore);
+		p2List_item<PathNode>* item = closed.list.add(open.GetNodeLowestScore()->data);
 	// TODO 4: If we just added the destination, we are done!
 		if (item->data.pos == destination)
 		{
@@ -194,20 +193,30 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 		}
 	// Backtrack to create the final path
 	// Use the Pathnode::parent and Flip() the path when you are finish
-		p2List_item<PathNode>* item = closed.list.end;
+		p2List_item<PathNode>* item_1 = closed.list.end;
 		while (item != NULL)
 		{
-			last_path.PushBack(item->data.pos);
-			item = closed.list.At(closed.list.find(*item->data.parent));
+			last_path.PushBack(item_1->data.pos);
+			item_1 = closed.list.At(closed.list.find(*item_1->data.parent));
 		}
 		last_path.Flip();
 	// TODO 5: Fill a list of all adjancent nodes
-	
+		PathList Neighbors;
+		uint numberofloops = FindWalkableAdjacents(Neighbors);	
+
 	// TODO 6: Iterate adjancent nodes:
-	// ignore nodes in the closed list
-	// If it is NOT found, calculate its F and add it to the open list
+		for (int i = 0; i < numberofloops; ++i)
+		{
+			if (closed.list.find(Neighbors.list[i]) == -1)// ignore nodes in the closed list
+			{
+				Neighbors.list[i].CalculateF(destination);// If it is NOT found, calculate its F 
+				open.list.add(Neighbors.list[i]);//and add it to the open list
+			}
+			else
+		}
 	// If it is already in the open list, check if it is a better path (compare G)
 	// If it is a better path, Update the parent
+		
 	}
 	return -1;
 }

@@ -80,6 +80,11 @@ struct PathNode
 	int h;
 	iPoint pos;
 	const PathNode* parent; // needed to reconstruct the path in the end
+
+	bool operator==(PathNode &other)
+	{
+		return (other.g == g && other.h == h && other.pos == pos);
+	}
 };
 
 // ---------------------------------------------------------------------

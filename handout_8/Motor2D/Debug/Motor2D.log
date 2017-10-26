@@ -1,0 +1,30 @@
+﻿Build started 26/10/2017 20:43:21.
+     1>Project "C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_8\Motor2D\Motor2D.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt j1Pathfinding.cpp
+         j1Pathfinding.cpp
+     1>c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\p2point.h(114): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\p2point.h(110) : while compiling class template member function 'int p2Point<int>::DistanceTo(const p2Point<int> &) const'
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\j1pathfinding.cpp(160) : see reference to function template instantiation 'int p2Point<int>::DistanceTo(const p2Point<int> &) const' being compiled
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\j1pathfinding.h(81) : see reference to class template instantiation 'p2Point<int>' being compiled
+     1>c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\p2point.h(114): warning C4244: 'return' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\p2list.h(295): error C2678: binary '==' : no operator found which takes a left-hand operand of type 'PathNode' (or there is no acceptable conversion)
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\j1pathfinding.h(84): could be 'bool PathNode::operator ==(PathNode &)'
+                 c:\program files (x86)\windows kits\8.1\include\shared\guiddef.h(192): or       'bool operator ==(const GUID &,const GUID &)'
+                 while trying to match the argument list '(PathNode, const PathNode)'
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\p2list.h(289) : while compiling class template member function 'int p2List<PathNode>::find(const tdata &)'
+                 with
+                 [
+                     tdata=PathNode
+                 ]
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\j1pathfinding.cpp(202) : see reference to function template instantiation 'int p2List<PathNode>::find(const tdata &)' being compiled
+                 with
+                 [
+                     tdata=PathNode
+                 ]
+                 c:\users\hugo\documents\github\xml_handout_1\handout_8\motor2d\j1pathfinding.h(103) : see reference to class template instantiation 'p2List<PathNode>' being compiled
+     1>Done Building Project "C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_8\Motor2D\Motor2D.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.95
