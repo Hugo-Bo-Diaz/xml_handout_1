@@ -23,7 +23,8 @@ void j1Timer::Start()
 // ---------------------------------------------
 uint32 j1Timer::Read() const
 {
-	return SDL_GetTicks()-started_at;
+	uint32 time_now = SDL_GetTicks();
+	return time_now-started_at;
 }
 
 // ---------------------------------------------

@@ -105,6 +105,12 @@ private:
 	p2SString			load_game;
 	mutable p2SString	save_game;
 
+	//overall timers
+	j1PerfTimer* timer = nullptr;
+	j1Timer* timer_lowres = nullptr;
+	uint32 framessincestartup =0;
+	j1PerfTimer* update_timer= nullptr;
+
 };
 
 extern j1App* App; // No student is asking me about that ... odd :-S
