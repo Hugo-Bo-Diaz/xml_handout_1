@@ -1,0 +1,7 @@
+﻿  j1App.cpp
+c:\users\hugobd\downloads\dev_class10_handout\motor2d\j1app.cpp(216): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\hugobd\downloads\dev_class10_handout\motor2d\j1app.cpp(201): warning C4477: 'sprintf_s' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 5 has type 'uint64'
+  c:\users\hugobd\downloads\dev_class10_handout\motor2d\j1app.cpp(201): note: consider using '%llu' in the format string
+  c:\users\hugobd\downloads\dev_class10_handout\motor2d\j1app.cpp(201): note: consider using '%I64u' in the format string
+  Motor2D.vcxproj -> C:\Users\hugobd\Downloads\Dev_class10_handout\Debug\Development - Class 10.exe
+  Motor2D.vcxproj -> C:\Users\hugobd\Downloads\Dev_class10_handout\Debug\Development - Class 10.pdb (Partial PDB)

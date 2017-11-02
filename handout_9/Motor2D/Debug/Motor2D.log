@@ -1,44 +1,36 @@
-﻿Build started 01/11/2017 12:10:07.
-     1>Project "C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_9\Motor2D\Motor2D.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt j1App.cpp j1Audio.cpp j1FileSystem.cpp j1Input.cpp j1Main.cpp j1Map.cpp j1Pathfinding.cpp j1Render.cpp j1Scene.cpp j1Textures.cpp j1Window.cpp
-         j1App.cpp
-     1>c:\users\hugo\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(211): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\hugo\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(212): warning C4244: 'initializing' : conversion from 'double' to 'uint32', possible loss of data
-     1>c:\users\hugo\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(213): warning C4244: 'initializing' : conversion from 'uint64' to 'uint32', possible loss of data
-         Generating Code...
-         Compiling...
-         j1Main.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         j1Window.cpp
-         j1Textures.cpp
-         j1Scene.cpp
-         j1Render.cpp
-         j1Pathfinding.cpp
-         j1Map.cpp
-         j1Input.cpp
-         j1FileSystem.cpp
-         j1Audio.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.lib" /MACHINE:X86 Debug\j1FileSystem.obj
-         Debug\j1Main.obj
-         Debug\j1App.obj
-         Debug\j1Audio.obj
-         Debug\j1Input.obj
-         Debug\j1Map.obj
-         Debug\j1Pathfinding.obj
-         Debug\j1PerfTimer.obj
-         Debug\j1Scene.obj
-         Debug\j1Timer.obj
-         Debug\p2Log.obj
-         Debug\j1Render.obj
-         Debug\j1Textures.obj
-         Debug\j1Window.obj
-         Debug\pugixml.obj
-         Motor2D.vcxproj -> C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.exe
-     1>Done Building Project "C:\Users\Hugo\Documents\GitHub\xml_handout_1\handout_9\Motor2D\Motor2D.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:03.27
+﻿  pugixml.cpp
+  j1Window.cpp
+  j1Textures.cpp
+  j1Render.cpp
+  p2Log.cpp
+  j1Timer.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1timer.cpp(33): warning C4244: 'return': conversion from 'Uint32' to 'float', possible loss of data
+  j1Scene.cpp
+  j1PerfTimer.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1perftimer.cpp(29): warning C4244: 'return': conversion from 'Uint64' to 'double', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1perftimer.cpp(35): warning C4244: 'return': conversion from 'double' to 'uint64', possible loss of data
+  j1Pathfinding.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\p2point.h(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\p2point.h(110): note: while compiling class template member function 'int p2Point<int>::DistanceTo(const p2Point<int> &) const'
+  c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1pathfinding.cpp(160): note: see reference to function template instantiation 'int p2Point<int>::DistanceTo(const p2Point<int> &) const' being compiled
+  c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1pathfinding.h(81): note: see reference to class template instantiation 'p2Point<int>' being compiled
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\p2point.h(114): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  j1Map.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1map.cpp(107): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1map.cpp(108): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  j1Input.cpp
+  j1Audio.cpp
+  j1App.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(211): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(212): warning C4244: 'initializing': conversion from 'double' to 'uint32', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(213): warning C4244: 'initializing': conversion from 'uint64' to 'uint32', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(218): warning C4477: 'sprintf_s' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 6 has type 'uint64'
+  c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(218): note: consider using '%llu' in the format string
+  c:\users\hugobd\documents\github\xml_handout_1\handout_9\motor2d\j1app.cpp(218): note: consider using '%I64u' in the format string
+  j1Main.cpp
+  j1FileSystem.cpp
+  Generating Code...
+     Creating library C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.lib and object C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.exp
+physfs.lib(physfs.obj) : warning LNK4217: locally defined symbol _sprintf imported in function _PHYSFS_setSaneConfig
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.exe
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_9\Debug\Development - Class 9 Handout.pdb (Partial PDB)
