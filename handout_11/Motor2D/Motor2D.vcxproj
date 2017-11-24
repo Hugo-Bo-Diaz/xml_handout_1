@@ -116,7 +116,8 @@
     <ClInclude Include="p2SString.h" />
     <ClInclude Include="PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="PugiXml\src\pugixml.hpp" />
-    <ClInclude Include="UIStartButton.h" />
+    <ClInclude Include="UIbutton.h" />
+    <ClInclude Include="UICheckBox.h" />
     <ClInclude Include="UIelement.h" />
     <ClInclude Include="UIimage.h" />
     <ClInclude Include="UItext.h" />

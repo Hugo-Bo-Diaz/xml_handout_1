@@ -14,7 +14,7 @@ public:
 	~UIelement() {};
 
 	virtual void OnClick() { /*LOG("CLICK");*/ };
-	virtual void OnRelease() { /*LOG("BYE");*/ };
+	virtual bool OnRelease() { return true; };
 	virtual void OnMouseOver() {  };
 
 	virtual void Draw() {};
