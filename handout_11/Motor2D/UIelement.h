@@ -13,17 +13,16 @@ public:
 	UIelement() {};
 	~UIelement() {};
 
-	virtual void OnClick() {
-		LOG("HI");
-	};
-	virtual void OnRelease() {
-		LOG("BYE");
-	};
-	virtual void OnMouseOver() {
-		//LOG("I'm being harrassed");
-	};
+	virtual void OnClick() { /*LOG("CLICK");*/ };
+	virtual void OnRelease() { /*LOG("BYE");*/ };
+	virtual void OnMouseOver() {  };
 
 	virtual void Draw() {};
+
+	SDL_Rect GetRect()
+	{
+		return {position.x,position.y,portion.w,portion.h};
+	}
 };
 
 #endif 

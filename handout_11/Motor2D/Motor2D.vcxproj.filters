@@ -126,7 +126,7 @@
     <ClInclude Include="UIimage.h">
       <Filter>Desenvolupament  ========\UIelements</Filter>
     </ClInclude>
-    <ClInclude Include="UIinteractive.h">
+    <ClInclude Include="UIStartButton.h">
       <Filter>Desenvolupament  ========\UIelements</Filter>
     </ClInclude>
   </ItemGroup>
