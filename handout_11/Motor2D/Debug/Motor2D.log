@@ -1,2 +1,16 @@
-﻿  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_11\Debug\Development - Class 11 Handout2.exe
+﻿  j1App.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1app.cpp(217): warning C4018: '<': signed/unsigned mismatch
+c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1app.cpp(213): warning C4477: 'sprintf_s' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 6 has type 'uint64'
+  c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1app.cpp(213): note: consider using '%llu' in the format string
+  c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1app.cpp(213): note: consider using '%I64u' in the format string
+  Generating Code...
+  Compiling...
+  j1Scene.cpp
+c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1scene.cpp(95): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1scene.cpp(98): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1scene.cpp(101): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\hugobd\documents\github\xml_handout_1\handout_11\motor2d\j1scene.cpp(104): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  j1Gui.cpp
+  Generating Code...
+  Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_11\Debug\Development - Class 11 Handout2.exe
   Motor2D.vcxproj -> C:\Users\hugobd\Documents\GitHub\xml_handout_1\handout_11\Debug\Development - Class 11 Handout2.pdb (Partial PDB)

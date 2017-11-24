@@ -13,7 +13,7 @@ public:
 	UIelement() {};
 	~UIelement() {};
 
-	virtual void OnClick() { /*LOG("CLICK");*/ };
+	virtual void OnClick() {};
 	virtual bool OnRelease() { return true; };
 	virtual void OnMouseOver() {  };
 

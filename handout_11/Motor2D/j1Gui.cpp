@@ -11,6 +11,8 @@
 #include "UItext.h"
 #include "UIimage.h"
 #include "UIbutton.h"
+#include "UICheckBox.h"
+
 j1Gui::j1Gui() : j1Module()
 {
 	name.create("gui");
@@ -93,6 +95,9 @@ bool j1Gui::Start()
 	elements.add(credits_button);
 	UIelement* cinematics_button = new UIButton({ 880, 326 }, button_type::CINEMATICS);
 	elements.add(cinematics_button);
+
+	UIelement* account_check = new UICheckBox({ 10, 475 }, check_type::ACCOUNT_NAME);
+	elements.add(account_check);
 
 	return true;
 }
