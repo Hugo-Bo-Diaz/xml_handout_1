@@ -87,6 +87,12 @@ bool j1Input::PreUpdate()
 				windowEvents[WE_QUIT] = true;
 			break;
 
+			case SDL_TEXTINPUT:
+			{
+				buffered_text = event.text.text;
+			}
+			break;
+
 			case SDL_WINDOWEVENT:
 				switch(event.window.event)
 				{
@@ -125,6 +131,7 @@ bool j1Input::PreUpdate()
 				mouse_y = event.motion.y / scale;
 				//LOG("Mouse motion x %d y %d", mouse_motion_x, mouse_motion_y);
 			break;
+
 		}
 	}
 

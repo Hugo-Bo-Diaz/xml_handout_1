@@ -12,6 +12,7 @@
 #include "UIimage.h"
 #include "UIbutton.h"
 #include "UICheckBox.h"
+#include "UItextbox.h"
 
 j1Gui::j1Gui() : j1Module()
 {
@@ -79,7 +80,7 @@ bool j1Gui::Start()
 	UIelement* blizzard_logo = new UIimage({ 451, 485 }, { 0,0,122,74 });
 	elements.add(blizzard_logo);
 
-	UIelement* login_button = new UIButton({ 446, 370 }, button_type::LOGIN);
+	UIelement* login_button = new UIButton({ 446, 350 }, button_type::LOGIN);
 	elements.add(login_button);
 
 	UIelement* manage_account_button = new UIButton({ 10, 390 }, button_type::MANAGE_ACCOUNT);
@@ -98,6 +99,13 @@ bool j1Gui::Start()
 
 	UIelement* account_check = new UICheckBox({ 10, 475 }, check_type::ACCOUNT_NAME);
 	elements.add(account_check);
+
+
+	UIelement* name_textbox = new UITextbox({450,200}, "Account Name");
+	elements.add(name_textbox);
+	UIelement* password_textbox = new UITextbox({ 450,275 }, "Account Password");
+	elements.add(password_textbox);
+
 
 	return true;
 }

@@ -1,5 +1,5 @@
-#ifndef __UI_START__
-#define __UI_START__
+#ifndef __UI_BUTTON__
+#define __UI_BUTTON__
 
 #include "p2Point.h"
 #include "p2SString.h"
@@ -90,7 +90,7 @@ public:
 			mouseover = false;
 		}
 		App->render->Blit(tex, position.x + portion.w / 2 - text_w / 2, (position.y + portion.h / 2 - text_h / 2) -2);
-	};
+		};
 
 	void OnClick() { clicked = true; };
 	void OnMouseOver() { mouseover = true; };
@@ -121,8 +121,7 @@ public:
 			{LOG("WHAT COMUNITY LOL");
 			break; }
 			case QUIT:
-			{LOG("LOL QUITTER");
-			ret = false;
+			{ret = false;
 			break; }
 			default:
 			{LOG("LOL U DUMB");
