@@ -26,7 +26,6 @@ enum button_type
 class UIButton : public UIelement
 {
 public:
-	bool mouseover = false;
 	bool clicked = false;
 	SDL_Rect pressed = {0,105,133,34};
 	SDL_Rect glow = {0,139,144,46};
@@ -39,6 +38,8 @@ public:
 	UIButton() {};
 	UIButton(iPoint pos, button_type _type = NUL)// color is a 4 dim array in this order{r g b a} this is for the default font need to adapt it better
 	{
+		type_of_element = BUTTON;
+
 		position = pos;
 		portion = {0,73,133,34};
 		type = _type;
@@ -66,7 +67,7 @@ public:
 		{string = "Quit";
 		break;}
 		default:
-		{string = "kys stupid programer";
+		{string = "silly programer...";
 		break;}
 		}
 		tex = App->tex->textures.add(App->font->Print(string.GetString(), { 255,255,0,255 }, App->font->default))->data;
@@ -100,33 +101,7 @@ public:
 
 		if (mouseover && clicked) 
 		{ 
-			switch (type)
-			{
-			case LOGIN:
-			{LOG("LOL U HAVE LOGGED IN");
-			break; }
-			case CINEMATICS:
-			{LOG("WE HAVE NONE YET LOL");
-			break; }
-			case CREDITS:
-			{LOG("I DID THIS LOL");
-			break; }
-			case TERMS_OF_USE:
-			{LOG("I DON'T LET U USE THIS LOL");
-			break; }
-			case MANAGE_ACCOUNT:
-			{LOG("LOL WHAT ACCOUNT");
-			break; }
-			case COMUNITY_SITE:
-			{LOG("WHAT COMUNITY LOL");
-			break; }
-			case QUIT:
-			{ret = false;
-			break; }
-			default:
-			{LOG("LOL U DUMB");
-			break; }
-			}
+			ret = OnActivation();
 		} 
 		clicked = false;
 		return ret;

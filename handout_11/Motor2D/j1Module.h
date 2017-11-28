@@ -9,6 +9,8 @@
 #include "p2SString.h"
 #include "PugiXml\src\pugixml.hpp"
 
+class UIelement;
+
 class j1App;
 
 class j1Module
@@ -68,6 +70,11 @@ public:
 	}
 
 	virtual bool Save(pugi::xml_node&) const
+	{
+		return true;
+	}
+
+	virtual bool UIinteraction(UIelement* element)
 	{
 		return true;
 	}

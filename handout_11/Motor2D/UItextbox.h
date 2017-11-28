@@ -14,7 +14,6 @@
 class UITextbox : public UIelement
 {
 public:
-	bool mouseover = false;
 	bool clicked = false;
 	p2SString string;
 	int title_w;
@@ -29,6 +28,8 @@ public:
 	UITextbox() {};
 	UITextbox(iPoint pos,const char* name)// color is a 4 dim array in this order{r g b a} this is for the default font need to adapt it better
 	{
+		type_of_element = TEXTBOX;
+
 		position = pos;
 		string = name;
 		tex = App->tex->textures.add(App->font->Print(string.GetString(), { 255,255,0,255 }, App->font->default))->data;
@@ -80,10 +81,6 @@ public:
 		App->input->StartKeyInput();
 		clicked = false;
 	};
-	void OnMouseOver()
-	{
-		mouseover = true;
-	}
 	bool OnRelease() 
 	{
 		bool ret = true;

@@ -20,6 +20,8 @@ public:
 	UItext() {};
 	UItext(iPoint pos, const char* _text, SDL_Color _color)// color is a 4 dim array in this order{r g b a} this is for the default font need to adapt it better
 	{
+		type_of_element = TEXT;
+
 		position = pos;
 		//text.create(_text);
 		texture = App->tex->textures.add(App->font->Print(_text,_color,App->font->default))->data;

@@ -20,6 +20,8 @@ public:
 	{
 		position = pos;
 		portion = _rect;
+		type_of_element = IMAGE;
+
 	}
 	~UIimage() {};
 
